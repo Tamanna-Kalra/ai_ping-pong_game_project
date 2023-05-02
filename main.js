@@ -21,10 +21,18 @@ var ball = {
     dy:3
 }
 
-function setup(){
-  var canvas =  createCanvas(700,600);
+function setup() {
+	canvas = createCanvas(1240,336);
+	canvas.parent("canvas");
+	video = createCapture(VIDEO);
+	video.size(700 , 600);
+  video.hide();
+	poseNet = ml5.poseNet(video , modelLoded);
 }
 
+function modelLoded() {
+	console.log('Model Loaded');
+}
 
 function draw(){
 
